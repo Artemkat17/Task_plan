@@ -1,0 +1,56 @@
+.navbar {
+  /* Растягиваем на всю ширину и убираем отступы */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  /* Сетка для идеального центрирования текста */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0 24px;
+  height: 60px;
+  box-sizing: border-box;
+
+  /* Закругляем только нижние углы (можно настроить по вкусу) */
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.navbar-title {
+  grid-column: 2; /* Текст жестко привязан к центральной колонке */
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.navbar-login-container {
+  grid-column: 3; /* Кнопка уходит в правую колонку */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar-login-btn {
+  background: none;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.navbar-login-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
