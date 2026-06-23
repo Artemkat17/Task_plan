@@ -1,22 +1,20 @@
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import React from 'react';
 import '../CSS/NavBar.css';
 
 export default function NavBar() {
-  const handleLoginClick = () => {
-    console.log('Кнопка "Вход" нажата');
-  };
 
   return (
     <nav className="navbar">
       {/* Пустой блок для первой колонки сетки */}
       <div></div>
 
-      <h1 className="navbar-title">TaskPlan</h1>
+      <Link to="/" className="navbar-title">TaskManager</Link>
 
       <div className="navbar-login-container">
-        <button className="navbar-login-btn" onClick={handleLoginClick}>
+        <Link className="navbar-login-btn" to='reg'>
           Вход
-        </button>
+        </Link>
       </div>
     </nav>
   );

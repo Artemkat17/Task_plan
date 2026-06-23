@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import './App.css'
-
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
+import Home from "./pages/home"
+import Reg from "./pages/reg"
 
 function App() {
   return (
 		<BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+			<div className="app-layout">
+				<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/reg" element={<Reg />} />
+				</Routes>
+			</div>
     </BrowserRouter>
   )
 }

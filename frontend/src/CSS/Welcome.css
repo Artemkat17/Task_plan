@@ -1,0 +1,149 @@
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px; /* Увеличили внешние отступы вокруг карточки */
+  flex-grow: 1;
+  min-height: calc(100vh - 100px); /* Позволяет карточке занять почти всю высоту экрана под NavBar */
+}
+
+.welcome-card {
+  background-color: #000000;
+  color: #ffffff;
+  width: 100%;
+  max-width: 900px; /* Увеличили ширину карточки с 600px до 900px */
+  border-radius: 16px; /* Чуть сильнее скруглили углы для больших размеров */
+  padding: 60px; /* Увеличили внутренние отступы, чтобы контент "дышал" */
+  box-sizing: border-box;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-title {
+  margin: 0 0 24px 0;
+  font-size: 42px; /* Сделали заголовок крупным и массивным */
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.welcome-subtitle {
+  color: #aaaaaa;
+  font-size: 20px; /* Увеличили размер шрифта описания */
+  line-height: 1.6;
+  margin: 0 0 48px 0;
+}
+
+.welcome-features {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Увеличили расстояние между пунктами преимуществ */
+  margin-bottom: 48px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 18px; /* Сделали текст преимуществ крупнее */
+  color: #e2e2e4;
+}
+
+.feature-icon {
+  font-size: 24px; /* Увеличили размер иконок/эмодзи */
+  flex-shrink: 0;
+}
+
+.welcome-cta {
+  border-top: 1px solid #222225;
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.cta-text {
+  margin: 0;
+  font-size: 16px; /* Увеличили призыв к действию */
+  color: #888888;
+  line-height: 1.5;
+}
+
+.welcome-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  padding: 14px 28px; /* Сделали саму кнопку больше и заметнее */
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.welcome-btn:hover {
+  background-color: #e2e2e4;
+}
+
+.welcome-btn:active {
+  transform: scale(0.98);
+}
+
+/* Адаптивность для мобильных телефонов и планшетов */
+@media (max-width: 768px) {
+  .welcome-container {
+    padding: 16px 12px;       /* Минимальные внешние отступы, чтобы карточка была шире */
+    min-height: auto;         /* Отменяем фиксированную высоту, карточка подстроится под контент */
+    align-items: flex-start;  /* Прижимаем карточку кверху, чтобы не болталась по центру */
+  }
+
+  .welcome-card {
+    padding: 24px 20px;       /* Компактные внутренние отступы */
+    border-radius: 12px;      /* Чуть уменьшаем скругление для маленьких экранов */
+  }
+
+  .welcome-title {
+    font-size: 24px;          /* Аккуратный заголовок в две строки максимум */
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .welcome-subtitle {
+    font-size: 15px;          /* Комфортный размер для чтения на телефоне */
+    margin-bottom: 24px;
+    line-height: 1.4;
+  }
+
+  .welcome-features {
+    gap: 16px;                /* Сужаем расстояние между пунктами */
+    margin-bottom: 32px;
+  }
+
+  .feature-item {
+    font-size: 14px;          /* Уменьшаем текст преимуществ */
+    align-items: flex-start;  /* Если текст перенесется, иконка останется сверху */
+    gap: 10px;
+  }
+
+  .feature-icon {
+    font-size: 18px;          /* Уменьшаем размер эмодзи/иконки */
+    margin-top: 2px;          /* Легкое выравнивание с первой строкой текста */
+  }
+
+  .welcome-cta {
+    padding-top: 20px;
+    gap: 16px;
+  }
+
+  .cta-text {
+    font-size: 13px;          /* Компактный призыв к действию */
+  }
+
+  .welcome-btn {
+    width: 100%;              /* Кнопка на всю ширину экрана — так удобнее нажимать пальцем */
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+}
