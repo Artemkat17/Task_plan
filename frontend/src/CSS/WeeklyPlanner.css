@@ -1,0 +1,192 @@
+.planner-container {
+  width: calc(100% - 40px);
+  max-width: 1400px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Панель переключения недель */
+.planner-header {
+  background-color: #000000;
+  border-radius: 12px;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.week-title {
+  font-size: 16px;
+  font-weight: 600;
+  min-width: 160px;
+  text-align: center;
+}
+
+.week-nav-btn {
+  background: none;
+  border: 1px solid #333333;
+  color: #ffffff;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.week-nav-btn:hover {
+  background-color: #222225;
+}
+
+/* Сетка календаря: строгая линия без скролла */
+.planner-grid {
+  display: flex;
+  gap: 10px; /* Уменьшили расстояние между колонками, чтобы сэкономить место */
+  align-items: start;
+  width: 100%;
+}
+
+/* Уменьшенные колонки дней недели */
+.day-column {
+  background-color: #000000;
+  border-radius: 10px;
+  padding: 12px; /* Уменьшили внутренние отступы */
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+
+  /* Делит экран ровно на 7 частей и запрещает скролл */
+  flex: 1;
+  min-width: 0; /* Позволяет флекс-элементам сжиматься меньше своего содержимого */
+}
+
+.day-column:hover {
+  border-color: #222225;
+}
+
+.day-name {
+  margin: 0;
+  font-size: 14px; /* Чуть уменьшили размер шрифта заголовка дня */
+  font-weight: 600;
+  border-bottom: 1px solid #222225;
+  padding-bottom: 6px;
+  text-align: center; /* Центрируем для более аккуратного вида в узких колонках */
+}
+
+/* Компактный инпут для новых задач */
+.task-input-box {
+  display: flex;
+  gap: 4px;
+}
+
+.task-input-box input {
+  flex: 1;
+  background-color: #111111;
+  border: 1px solid #222225;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 12px; /* Компактный шрифт для ввода */
+  outline: none;
+  min-width: 0; /* Предотвращает раздувание инпута */
+}
+
+.task-input-box input:focus {
+  border-color: #ffffff;
+}
+
+.task-input-box button {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Список задач */
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1;
+}
+
+/* Компактные карточки задач */
+.task-card {
+  background-color: #161618;
+  border: 1px solid #222225;
+  border-radius: 6px;
+  padding: 8px 10px; /* Уменьшили отступы в самой задаче */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 6px;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+.task-card:active {
+  cursor: grabbing;
+  transform: scale(0.98);
+}
+
+.task-card:hover {
+  background-color: #222225;
+}
+
+.task-text {
+  font-size: 12px; /* Уменьшили размер текста задачи */
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.task-delete-btn {
+  background: none;
+  border: none;
+  color: #888888;
+  cursor: pointer;
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.task-delete-btn:hover {
+  color: #ff4d4d;
+}
+
+/* Планшетный и мобильный адаптив: на маленьких экранах 7 колонок в ряд физически не поместятся,
+   поэтому здесь мы возвращаем перенос, чтобы интерфейс оставался читаемым */
+@media (max-width: 900px) {
+  .planner-grid {
+    flex-wrap: wrap;
+  }
+
+  .day-column {
+    flex: 1 1 200px; /* Занимает минимум 200px и переносится при нехватке места */
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .day-column {
+    flex: 1 1 100%; /* На смартфонах колонки встают в полную ширину */
+  }
+}
